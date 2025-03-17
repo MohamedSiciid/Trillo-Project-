@@ -1,0 +1,5 @@
+# Exclude package-lock.json
+package-lock.json
+
+# Exclude node_modules directory
+node_modules/

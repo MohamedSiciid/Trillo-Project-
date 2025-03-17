@@ -1,0 +1,31 @@
+{
+  "name": "trillo-project",
+  "version": "1.0.0",
+  "description": "landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile:sass": "sass sass/main.scss css/style.css --watch",
+    "prefix:css": "postcss css/style.css --use autoprefixer -o css/style.prefixed.css",
+    "build:css": "npm run compile:sass && npm run prefix:css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedSiciid/Natours.git"
+  },
+  "author": "mohamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedSiciid/Natours/issues"
+  },
+  "homepage": "https://github.com/MohamedSiciid/Natours#readme",
+  "dependencies": {
+    "json": "^11.0.0",
+    "node": "^20.19.0",
+    "sass": "^1.85.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss-cli": "^9.0.0"
+  }
+}
