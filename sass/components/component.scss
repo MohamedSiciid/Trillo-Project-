@@ -45,6 +45,7 @@
   &__button {
     border: none;
     background-color: var(--color-grey-light-2);
+    cursor: pointer; // i did this
 
     &:focus {
       outline: none;
@@ -184,4 +185,19 @@
   color: var(--color-white);
   text-align: center;
   padding: 2rem;
+}
+
+///////////////////////
+/// GALLERY
+.gallery {
+  display: flex; // Use Flexbox for layout
+  // gap: 1rem; // Add some space between the images
+  justify-content: space-between; // Distribute items evenly
+
+  &__photo {
+    display: block;
+    width: 100%; // Make the image fill its container
+    height: 20rem; // Set a fixed height for the images
+    object-fit: cover; // Ensure the image fits nicely
+  }
 }
