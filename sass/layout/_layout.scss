@@ -1,10 +1,17 @@
+@use "../base/base" as *;
+
 .container {
   max-width: 120rem;
   margin: 8rem auto;
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
   min-height: 50rem;
-  border-radius: 3px;
+
+  @media only screen and (max-width: $bp-largest) {
+    margin: 0;
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .header {
@@ -19,6 +26,10 @@
 
 .content {
   display: flex;
+
+  @media only screen and (max-width: $bp-media) {
+    flex-direction: column;
+  }
 }
 
 .sidebar {
@@ -40,6 +51,10 @@
   padding: 4.5rem;
   background-color: var(--color-grey-light-3);
   border-bottom: var(--line);
+
+  @media only screen and (max-width: $bp-media) {
+    padding: 3rem;
+  }
 }
 
 .description {
@@ -48,6 +63,11 @@
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem;
+
+  @media only screen and (max-width: $bp-media) {
+    padding: 2rem;
+    margin-right: 3rem;
+  }
 }
 
 .user-reviews {
@@ -97,34 +117,5 @@
     -webkit-mask-size: cover;
     mask-image: url(/img/SVG/chevron-thin-right.svg);
     mask-size: cover;
-  }
-}
-
-//////////////////////
-/// Recommand
-.recommand {
-  font-size: 1.3rem;
-  color: var(--color-grey-dark-3);
-  display: flex;
-  align-items: center;
-  // justify-content: space-between;
-
-  &__photo {
-    box-sizing: content-box;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 50%;
-    border: 3px solid var(--color-white);
-
-    &:not(:last-child) {
-      margin-right: -1.5rem;
-    }
-  }
-
-  &__count {
-    margin-right: auto;
-  }
-
-  &__friend {
   }
 }

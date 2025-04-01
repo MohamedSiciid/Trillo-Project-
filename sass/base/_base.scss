@@ -20,6 +20,11 @@
   --line: 1px solid var(--color-grey-light-2);
 }
 
+//here is varaible for the size of the page
+$bp-largest: 75em; //1200/16 is 75 so we will use em not rem
+$bp-large: 68.75em; //1100/16 is 75 so we will use em not rem
+$bp-media: 56.25em; //1100/16 is 75 so we will use em not rem
+
 * {
   margin: 0;
   padding: 0;
@@ -33,7 +38,11 @@
 
 html {
   box-sizing: border-box;
-  font-size: 62.5%; //1rm = 10px, 10/16px = 62.5%
+  font-size: 62.5%; //1rm = 10px, (10/16px)*10 = 62.5%
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 50%;
+  }
 }
 
 body {
