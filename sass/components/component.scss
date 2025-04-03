@@ -72,7 +72,8 @@
 ///////////////////////
 /// User Nav
 .user-nav {
-  align-self: stretch;
+  position: relative; // Ensure proper positioning for the menu
+  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -122,6 +123,120 @@
     object-fit: cover;
     cursor: pointer;
     margin-right: 1rem;
+  }
+
+  // User icon styles
+  // This is the icon that appears when you hover over the message icon
+
+  &__icon-box {
+    position: relative; /* Ensure the dropdown menu is positioned relative to the icon box */
+    cursor: pointer;
+
+    &:hover .user-nav__icon-menu {
+      display: flex; /* Show the menu on hover */
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__icon-menu {
+    display: none; /* Hide the menu by default */
+    flex-direction: column; /* Stack menu items vertically */
+    position: absolute;
+    top: 100%; /* Position the menu below the icon box */
+    left: 0;
+    background: var(--color-white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    z-index: 100;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    width: 200px; /* Set a fixed width for the dropdown menu */
+  }
+
+  &__icon-link {
+    text-decoration: none;
+    color: var(--color-grey-dark-1);
+    font-size: 1.4rem;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--color-grey-light-2);
+    }
+  }
+
+  // User menu styles
+  // This is the menu that appears when you hover over the user name
+  &__user {
+    position: relative; // Parent container for user-name and user-menu
+
+    &-name {
+      text-transform: uppercase;
+      margin-right: 1rem;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      color: var(--color-grey-dark-2);
+      cursor: pointer;
+    }
+
+    &-menu {
+      display: none;
+      color: var(--color-grey-dark-1);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      position: absolute;
+      background: var(--color-white);
+      flex-direction: column;
+      padding: 1rem 1rem;
+      border-radius: 0.5rem;
+      z-index: 100;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(-10px);
+      width: 100%; /* Ensure the menu spans the full width of the parent */
+    }
+
+    &-picture {
+      height: 3rem;
+      width: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      align-items: center; /* Center the image vertically */
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column; /* Stack text elements vertically */
+      line-height: 1.2;
+    }
+
+    &:hover &-menu {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    & a {
+      display: flex; /* Use Flexbox to align items side by side */
+      align-items: center; /* Vertically center the items */
+      text-decoration: none;
+      color: var(--color-grey-dark-1);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin: 0.5rem 0; /* Add some space between items */
+      padding: 1rem; /* Add padding for better spacing */
+      width: 100%; /* Make the link span the full width of the parent */
+      background-color: transparent; /* Default background color */
+      transition: background-color 0.2s ease;
+
+      &:hover {
+        background-color: var(--color-grey-light-2);
+      }
+    }
   }
 }
 

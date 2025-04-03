@@ -108,7 +108,8 @@ body {
 }
 
 .user-nav {
-  align-self: stretch;
+  position: relative;
+  cursor: pointer;
   display: flex;
   align-items: center;
 }
@@ -151,6 +152,102 @@ body {
   object-fit: cover;
   cursor: pointer;
   margin-right: 1rem;
+}
+.user-nav__icon-box {
+  position: relative; /* Ensure the dropdown menu is positioned relative to the icon box */
+  cursor: pointer;
+}
+.user-nav__icon-box:hover .user-nav__icon-menu {
+  display: flex; /* Show the menu on hover */
+  opacity: 1;
+  transform: translateY(0);
+}
+.user-nav__icon-menu {
+  display: none; /* Hide the menu by default */
+  flex-direction: column; /* Stack menu items vertically */
+  position: absolute;
+  top: 100%; /* Position the menu below the icon box */
+  left: 0;
+  background: var(--color-white);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  width: 200px; /* Set a fixed width for the dropdown menu */
+}
+.user-nav__icon-link {
+  text-decoration: none;
+  color: var(--color-grey-dark-1);
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease;
+}
+.user-nav__icon-link:hover {
+  background-color: var(--color-grey-light-2);
+}
+.user-nav__user {
+  position: relative;
+}
+.user-nav__user-name {
+  text-transform: uppercase;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: var(--color-grey-dark-2);
+  cursor: pointer;
+}
+.user-nav__user-menu {
+  display: none;
+  color: var(--color-grey-dark-1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  background: var(--color-white);
+  flex-direction: column;
+  padding: 1rem 1rem;
+  border-radius: 0.5rem;
+  z-index: 100;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(-10px);
+  width: 100%; /* Ensure the menu spans the full width of the parent */
+}
+.user-nav__user-picture {
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  align-items: center; /* Center the image vertically */
+}
+.user-nav__user-text {
+  display: flex;
+  flex-direction: column; /* Stack text elements vertically */
+  line-height: 1.2;
+}
+.user-nav__user:hover .user-nav__user-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+.user-nav__user a {
+  display: flex; /* Use Flexbox to align items side by side */
+  align-items: center; /* Vertically center the items */
+  text-decoration: none;
+  color: var(--color-grey-dark-1);
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 0.5rem 0; /* Add some space between items */
+  padding: 1rem; /* Add padding for better spacing */
+  width: 100%; /* Make the link span the full width of the parent */
+  background-color: transparent; /* Default background color */
+  transition: background-color 0.2s ease;
+}
+.user-nav__user a:hover {
+  background-color: var(--color-grey-light-2);
 }
 
 .side-nav {
